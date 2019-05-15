@@ -9,7 +9,7 @@
 	<font size="4"> <strong>ログイン画面</strong>
 	</font>
 	<br>
-	<form method="post" action="/NockWeb/loginConf">
+	<form method="post" action="/ExpensesPay/loginConf">
 		<table>
 			<tr>
 				<td>ID:</td>

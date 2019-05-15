@@ -4,9 +4,9 @@ import java.sql.ResultSet;
 
 public class UserDao extends DBAccess{
 	public String[] getUser(String id,String pass) {
-		String sql = "select user_name auth_no from user where user_id = ? and pass = ?";
+		String sql = "select user_name,auth_no from user where user_id = ? and pass = ?";
 
-		String[] name = new String[3];
+		String[] name = new String[2];
 		ResultSet rs = null;
 
 		try {

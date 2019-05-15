@@ -22,6 +22,7 @@ public class LoginUserServletConf extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html);charaset = UTF-8");
+
 		String id = request.getParameter("id");
 		String pass =request.getParameter("pass");
 
