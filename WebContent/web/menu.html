@@ -1,0 +1,64 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<%
+	String name = (String) request.getAttribute("name");
+	String auth = (String) request.getAttribute("auth");
+	%>
+	<meta charset="UTF-8">
+	<title>機能テスト</title>
+</head>
+
+<body>
+	<div align="center">
+		<header>
+			<h3>マスタメンテナンスメニュー</h3>
+			<table>
+				<tr>
+					<td>名前</td>
+					<td><%=name%></td>
+				</tr>
+				<tr>
+					<td>部署</td>
+					<td>{dept}</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+
+			<% if(auth.equals("2")){ %>
+			<%=auth%>
+			<div>
+				管理
+			</div>
+			<% } %> -->
+
+			<% if(auth.equals("3")){ %>
+			<%=auth%>
+			<div>
+				承認
+			</div>
+			<% } %>
+
+			<div>
+				<button>設定</button>
+			</div>
+
+		</header>
+
+
+
+		<button onclick="histry back()">戻る</button>
+		<% } %>
+
+	</div>
+	<footer>
+
+	</footer>
+</body>
+
+</html>

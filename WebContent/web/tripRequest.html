@@ -1,0 +1,91 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>交通費申請</title>
+</head>
+
+<body>
+    <header>
+        <h3>交通費申請</h3>
+    </header>
+    <table border="1">
+        <tr>
+            <td>日付</td>
+            <td>区間</td>
+            <td>区分</td>
+            <td>交通機関</td>
+            <td>PRJCD</td>
+            <td>摘要</td>
+            <td>負担</td>
+            <td>領収書</td>
+            <td>交通費</td>
+        </tr>
+        <tr>
+            <td>
+                <script language="JavaScript">
+                    mydate = new Date();
+                    Ye = mydate.getFullYear() + "/";
+                    Mo = mydate.getMonth() + 1 + "/";
+                    Date = mydate.getDate();
+                    document.write(Ye + Mo + Date);
+                </script>
+            </td>
+            <td>
+                <input type="date">
+                ➡︎
+                <input type="date">
+
+            </td>
+            <td>
+                <select>
+                    <option>往復</option>
+                    <option>片道</option>
+                </select>
+            </td>
+            <td>
+                <select>
+                    <option>電車</option>
+                    <option>新幹線</option>
+                    <option>JR</option>
+                    <option>地下鉄</option>
+                    <option>私鉄</option>
+                    <option>バス</option>
+                    <option>タクシー</option>
+                    <option>飛行機</option>
+                    <option>その他</option>
+                </select>
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <select>
+                    <option>自己</option>
+                    <option>会社</option>
+                </select>
+            </td>
+            <td>
+                <select>
+                    <option>有</option>
+                    <option>無</option>
+                </select>
+            </td>
+            <td>
+                <input type="number">
+            </td>
+        </tr>
+    </table>
+    
+    <footer>
+        <button>確認</button>
+    </footer>
+
+</body>
+
+</html>

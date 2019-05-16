@@ -6,25 +6,24 @@
 <title>ログイン</title>
 </head>
 <body>
-	<font size="4"> <strong>ログイン画面</strong>
+	<font size="4"> <strong>精算管理システム</strong>
 	</font>
 	<br>
-	<form method="post" action="/ExpensesPay/loginConf">
+	<!-- リンク未設定 -->
+	<form method="post" action="/ExpensesPay/">
 		<table>
 			<tr>
-				<td>ID:</td>
+				<td>社員ID:</td>
 				<td><input type="text" size="20" name="id"></td>
 			</tr>
 			<tr>
-				<td>PASS:</td>
+				<td>パスワード:</td>
 				<td><input type="password" size="20" name="pass"></td>
 			</tr>
 		</table>
-		<br> <input type="submit" name="submit" value="ログイン">
-		<input type="reset" name="reset" value="リセット">
+		<br>
+			<button type="submit" name="submit" value="login">ログイン</button>
+			<button type="reset">リセット</button>
 	</form>
-	<% if((request.getAttribute("errmsg"))!=null){ %>
-	<%= request.getAttribute("errmsg") %>
-	<% } %>
 </body>
 </html>
