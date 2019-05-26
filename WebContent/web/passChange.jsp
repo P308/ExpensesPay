@@ -12,11 +12,12 @@
 
 <body>
 	<div class="main">
-			<p class="sign" align="center">精算管理システム</p>
+			<p class="sign" align="center">パスワード変更</p>
 			<form class="form1" method="post" action="/ExpensesPay/loginConf" onsubmit="return chkHissu(this)">
-				<input class="un " type="text" align="center" placeholder="社員ID" name="id">
-				<input class="pass" type="password" align="center" placeholder="Password" name="pass">
-				<button class="submit" type="submit" name="submit" value="login">ログイン</button>
+				<input class="un " type="password" align="center" placeholder="現在のパスワード" name="id">
+                <input class="pass" type="password" align="center" placeholder="新しいパスワード" name="pass">
+                <input class="pass" type="password" align="center" placeholder="新しいパスワード" name="pass">
+				<button class="submit" type="submit" name="submit" value="login">変更</button>
 				<button class="reset" type="reset" align="center">リセット</button>
 			</form>
 			   <% 	String err = (String)request.getAttribute("errmsg") ;

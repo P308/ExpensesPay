@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import main.UserDao;
+
 public class LoginUserServletConf extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
@@ -31,9 +33,18 @@ public class LoginUserServletConf extends HttpServlet {
 		String forward = null;
 
 		String[] name = dao.getUser(id,pass);
-		request.setAttribute("name", name[0]);
-		request.setAttribute("auth", name[1]);
 
+		request.setAttribute("id", name[0]);
+		request.setAttribute("name", name[1]);
+		request.setAttribute("dept_id", name[2]);
+		request.setAttribute("post_id", name[3]);
+
+		String dept = (String)request.getAttribute("dept_id");
+		String post = (String)request.getAttribute("post_id");
+
+		String[] name2 = dao.getPost(dept,post);
+		request.setAttribute("dept", name2[0]);
+		request.setAttribute("post", name2[1]);
 
 		if (name[0] != null) {
 			/**

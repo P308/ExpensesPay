@@ -17,4 +17,12 @@
     <servlet-name>loginConf</servlet-name>
     <url-pattern>/loginConf</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>passChange</servlet-name>
+    <servlet-class>login.PassChangeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>passChange</servlet-name>
+    <url-pattern>/passChange</url-pattern>
+  </servlet-mapping>
 </web-app>

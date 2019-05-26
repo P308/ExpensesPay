@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -6,37 +7,57 @@
     <meta charset="utf-8">
     <title>マスタメニュー</title>
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+    <%
+    	String id = (String)request.getAttribute("id");
+   		String name = (String)request.getAttribute("name");
+		String auth = (String)request.getAttribute("auth");
+		%>
 </head>
 
 <body>
-        <header>
-            <!-- <float class="title"> -->
-                <h1 class="title">マスタメンテナンスメニュー</h1>
-            <!-- </float> -->
-            <div class="setting">
-                <a class="btn-square-shadow">設定</a>
-            </div>
-        </header>
-        <float class="child0">
-            <p></p>
-        </float>
-        <div align="center">
-        <float class="child1">
+    <header>
+        <table class="menber">
+            <tr>
+                <td>ID</td>
+                <td><%=id %></td>
+            </tr>
+            <tr>
+                <td>名前</td>
+                <td><%=name %></td>
+            </tr>
+            <tr>
+                <td>部署</td>
+                <td><%=auth %></td>
+            </tr>
+        </table>
+        <!-- <float class="title"> -->
+        <h1 class="title sign">マスタメンテナンスメニュー</h1>
+        <!-- </float> -->
+        <div class="setting">
+            <a class="btn-square-shadow">設定</a>
+        </div>
+    </header>
+
+    <float class="child">
+        <p></p>
+    </float>
+    <div align="center">
+        <float class="child">
             <p><a class="btn-flat-border">交通費申請</a></p>
             <p><a class="btn-flat-border">出張申請</a></p>
             <p><a class="btn-flat-border">経費申請</a></p>
             <p><a class="btn-flat-border">申請一覧</a></p>
+            <p><a class="btn-flat-border">支払い管理</a></p>
         </float>
-        <float class="child2">
+        <float class="child">
             <p><a class="btn-flat-border-master">社員情報</a></p>
             <p><a class="btn-flat-border-master">部署管理</a></p>
-            <p><a class="btn-flat-border-master">申請管理</a></p>
             <p><a class="btn-flat-border-master">役職管理</a></p>
         </float>
-        </div>
-        <float class="child3">
-            <p></p>
-        </float>
+    </div>
+    <float class="child">
+        <p></p>
+    </float>
 </body>
 
 </html>
