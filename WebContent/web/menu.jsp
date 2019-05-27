@@ -4,10 +4,10 @@
 
 <head>
 	<%
-	String id = (String) request.getAttribute("id");
-	String name = (String) request.getAttribute("name");
-	String dept = (String) request.getAttribute("dept");
-	String post = (String) request.getAttribute("post");
+	String id = (String) session.getAttribute("id");
+	String name = (String) session.getAttribute("name");
+	String dept = (String) session.getAttribute("dept");
+	String post = (String) session.getAttribute("post");
 %>
 	<link rel="stylesheet" type="text/css" href="web/css/stylesheet.css" />
 	<meta charset="UTF-8">
@@ -15,6 +15,12 @@
 </head>
 
 <body>
+ <% 	String comp = (String)request.getAttribute("compmsg") ;
+  		if (comp != null) {%>
+  		<script>
+  			alert('<%= request.getAttribute("compmsg") %>')
+  		</script>
+  			<%}%>
 	<header>
 		<table class="menber">
 			<tr>
@@ -27,7 +33,7 @@
 			</tr>
 			<tr>
 				<td>部署</td>
-				<td><%=post %><%=dept %></td>
+				<td><%=dept %><%=post %></td>
 			</tr>
 		</table>
 		<float class="title">
@@ -37,6 +43,9 @@
 			<form method="post" action="/ExpensesPay/passChange">
 			<button type="submit" class="btn-square-shadow">パスワード変更</button>
 			</form>
+			<form method="post" action="/ExpensesPay/logout">
+			<button type="submit" class="btn-square-shadow">ログアウト</button>
+			</form>
 		</div>
 	</header>
 
@@ -44,6 +53,7 @@
     <float class="child">
         <p></p>
     </float>
+
  	<div align="center">
 		<float class="child">
 			<p>(1)事前申請</p>

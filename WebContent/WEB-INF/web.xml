@@ -25,4 +25,20 @@
     <servlet-name>passChange</servlet-name>
     <url-pattern>/passChange</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>passCheck</servlet-name>
+    <servlet-class>login.PassChangeConfServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>passCheck</servlet-name>
+    <url-pattern>/passCheck</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>logout</servlet-name>
+    <servlet-class>login.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logout</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -4,9 +4,9 @@ import java.sql.ResultSet;
 
 public class UserDao extends DBAccess{
 	public String[] getUser(String id,String pass) {
-		String sql = "select user_id,user_name,dept_id,post_id from user where user_id = ? and pass = ?";
+		String sql = "select user_id,user_name,dept_id,post_id,pass from user where user_id = ? and pass = ?";
 
-		String[] name = new String[4];
+		String[] name = new String[5];
 		ResultSet rs = null;
 
 		try {
@@ -21,6 +21,7 @@ public class UserDao extends DBAccess{
 				name[1]=rs.getString("user_name");
 				name[2]=rs.getString("dept_id");
 				name[3]=rs.getString("post_id");
+				name[4]=rs.getString("pass");
 
 			}
 		}catch(Exception e) {
@@ -57,5 +58,24 @@ public class UserDao extends DBAccess{
 		}
 
 		return name2;
+	}
+	public void changePass(String newPass,String id,String oldPass) {
+		String sql = "update user set pass = ? where user_id = ? and pass=?";
+
+		try {
+			connect();
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1,newPass);
+			ps.setString(2,id);
+			ps.setString(3,oldPass);
+
+			ps.executeUpdate();
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+
 	}
 }

@@ -106,6 +106,10 @@ a {
   float: left;
   width: 25%;
 }
+.fiveSplit{
+  float:left;
+  width:20%;
+}
 
 .left{
     float: right;
@@ -135,34 +139,47 @@ a {
   display: inline-block;
   padding: 0.3em 1em;
   text-decoration: none;
-  color: teal;
-  border: solid 2px teal;
+  color:  #78BF30;
+  border: solid 2px  #78BF30;
   border-radius: 3px;
   transition: .4s;
   width: 120px;
 }
 
 .btn-flat-border-master:hover {
-  background: teal;
+  background:  #78BF30;
   color: white;
 }
 .btn-flat-border {
   display: inline-block;
   padding: 0.3em 1em;
   text-decoration: none;
-  color: blue;
-  border: solid 2px blue;
+  color: #30BF78;
+  border: solid 2px #30BF78;
   border-radius: 3px;
   transition: .4s;
   width: 120px;
 }
 
 .btn-flat-border:hover {
-  background: blue;
+  background: #30BF78;
   color: white;
 }
-.hiddon{
-    display: none;
+
+.btn-flat-border-admin {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: gray;
+  border: solid 2px gray;
+  border-radius: 3px;
+  transition: .4s;
+  width: 150px;
+}
+
+.btn-flat-border-admin:hover {
+  background: gray;
+  color: white;
 }
 
 .btn-square-shadow {

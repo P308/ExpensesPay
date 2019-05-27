@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import main.UserDao;
 
@@ -23,10 +24,12 @@ public class LoginUserServletConf extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html);charaset = UTF-8");
+		response.setContentType("text/html;charaset = UTF-8");
 
 		String id = request.getParameter("id");
 		String pass =request.getParameter("pass");
+
+		HttpSession session = request.getSession(true);
 
 		UserDao dao = new UserDao();
 
@@ -34,24 +37,31 @@ public class LoginUserServletConf extends HttpServlet {
 
 		String[] name = dao.getUser(id,pass);
 
-		request.setAttribute("id", name[0]);
-		request.setAttribute("name", name[1]);
+
+		session.setAttribute("id", name[0]);
+		session.setAttribute("name", name[1]);
 		request.setAttribute("dept_id", name[2]);
 		request.setAttribute("post_id", name[3]);
+		session.setAttribute("pass", name[4]);
 
 		String dept = (String)request.getAttribute("dept_id");
 		String post = (String)request.getAttribute("post_id");
 
 		String[] name2 = dao.getPost(dept,post);
-		request.setAttribute("dept", name2[0]);
-		request.setAttribute("post", name2[1]);
-
+		session.setAttribute("dept", name2[0]);
+		session.setAttribute("post", name2[1]);
 		if (name[0] != null) {
-			/**
-			 * 遷移先をmenu.jspに定める
-			 */
-			forward = "web/menu.jsp";
-		} else {
+			if(name2[0] != null) {
+				if(name2[0].equals("管理部")) {
+					forward = "web/k_menu.jsp";
+				}
+			}
+			if(name2[1] != null) {
+				forward = "web/k_menu.jsp";
+			}else {
+				forward = "web/menu.jsp";
+			}
+		}else {
 			forward = "web/login.jsp";
 			String message = "IDもしくはPASSが間違っています";
 			request.setAttribute("errmsg", message);

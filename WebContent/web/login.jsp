@@ -24,9 +24,7 @@
   			<script>
   				alert('<%= request.getAttribute("errmsg") %>')
   			</script>
-  		<%-- <p align="center"><%= request.getAttribute("errmsg") %></p> --%>
-
-  	<%}%>
+  			<%}%>
 	</div>
 </body>
 

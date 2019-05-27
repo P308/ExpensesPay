@@ -7,12 +7,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class LogoutServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/LogoutServlet")
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -29,6 +30,14 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charaset = UTF-8");
+
+		HttpSession session = request.getSession(true);
+
+		session.removeAttribute("id");
+		session.removeAttribute("pass");
+		session.removeAttribute("dept");
+		session.removeAttribute("post");
+
 
 		RequestDispatcher rd = request.getRequestDispatcher("web/login.jsp");
 		rd.forward(request,response);
