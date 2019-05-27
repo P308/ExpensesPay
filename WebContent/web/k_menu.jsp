@@ -33,7 +33,11 @@
             </tr>
             <tr>
                 <td>部署</td>
-                <td><%=post %><%=dept %></td>
+                <td><%=dept %></td>
+            </tr>
+			<tr>
+                <td>役職</td>
+                <td><%=post %></td>
             </tr>
         </table>
         <float class="title">
@@ -72,6 +76,7 @@
             <% if(dept.equals("管理部")){ %>
             <p><a class="btn-flat-border-admin">社員管理</a></p>
             <p><a class="btn-flat-border-admin">部署管理</a></p>
+            <p><a class="btn-flat-border-admin">役職管理</a></p>
             <p><a class="btn-flat-border-admin">プロジェクト管理</a></p>
             <p><a class="btn-flat-border-admin">支払い管理</a></p>
             <% }else{ %>

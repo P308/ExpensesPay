@@ -37,7 +37,6 @@ public class LoginUserServletConf extends HttpServlet {
 
 		String[] name = dao.getUser(id,pass);
 
-
 		session.setAttribute("id", name[0]);
 		session.setAttribute("name", name[1]);
 		request.setAttribute("dept_id", name[2]);
