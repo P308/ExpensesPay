@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import main.UserCheck;
 import main.UserDao;
 
 public class LoginUserServletConf extends HttpServlet {
@@ -50,16 +51,10 @@ public class LoginUserServletConf extends HttpServlet {
 		session.setAttribute("dept", name2[0]);
 		session.setAttribute("post", name2[1]);
 		if (name[0] != null) {
-			if(name2[0] != null) {
-				if(name2[0].equals("管理部")) {
-					forward = "web/k_menu.jsp";
-				}
-			}
-			if(name2[1] != null) {
-				forward = "web/k_menu.jsp";
-			}else {
-				forward = "web/menu.jsp";
-			}
+			UserCheck user = new UserCheck();
+
+			forward = user.userCheck(name2[0], name2[1]);
+
 		}else {
 			forward = "web/login.jsp";
 			String message = "IDもしくはPASSが間違っています";

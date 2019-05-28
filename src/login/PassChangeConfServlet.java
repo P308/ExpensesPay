@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import main.UserCheck;
 import main.UserDao;
 
 public class PassChangeConfServlet extends HttpServlet {
@@ -35,20 +36,13 @@ public class PassChangeConfServlet extends HttpServlet {
 		String newPass =request.getParameter("newPass1");
 
 		String forward = null;
-
 		if(pass.equals(oldPass)) {
 			UserDao dao = new UserDao();
 			session.setAttribute("pass",newPass);
-			if(dept != null) {
-				if(dept.equals("管理部")) {
-					forward = "web/k_menu.jsp";
-				}
-			}
-			if(post != null) {
-				forward = "web/k_menu.jsp";
-			}else {
-				forward = "web/menu.jsp";
-			}
+
+			UserCheck user = new UserCheck();
+			forward = user.userCheck(dept, post);
+
 			dao.changePass(newPass, id, oldPass);
 			request.setAttribute("compmsg", "パスワードが変更されました");
 		}else {

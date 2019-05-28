@@ -2,14 +2,13 @@
      * [関数名] chkHissu
      * [機　能] 必須項目入力チェック
      * [説　明] フォーム送信時に必須項目が全て入力されているか調べる
-     * [引　数]
      * @param frm フォームオブジェクト
      * [返り値]
      * @return true(必須項目が全て入力されている場合) | false(未入力がある場合)
     */
     function chkHissu(frm){
         /* 必須入力のname属性 */
-        const hissu=Array("id","pass");
+        const hissu=Array("pass","id");
         /* アラート表示用 */
         const hissu_nm = Array("社員id","パスワード");
         /* 必須入力の数 */
